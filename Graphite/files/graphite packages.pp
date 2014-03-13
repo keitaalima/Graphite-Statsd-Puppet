@@ -10,7 +10,7 @@ class graphite_packages {
   }
 
 
-    package { 'django14-1.4.8':
+  package { 'django14-1.4.8':
     ensure => installed,
     provider => 'rpm',
     source => 'tmp/Django14-1.4.8-1.el6.noarch.rpm ',
@@ -18,7 +18,7 @@ class graphite_packages {
   }
 
 
-    package { 'expat':
+  package { 'expat':
     ensure => installed,
     provider => 'rpm',
     source => 'tmp/expat-2.0.1-11.el6_2.i686.rpm',
@@ -26,7 +26,7 @@ class graphite_packages {
   }
 
 
-    package { 'fontconfig':
+  package { 'fontconfig':
     ensure => installed,
     provider => 'rpm',
     source => 'tmp/fontconfig-2.8.0-3.el6.x86_64.rpm',
@@ -34,7 +34,7 @@ class graphite_packages {
   }
 
 
-    package { 'freetype':
+  package { 'freetype':
     ensure => installed,
     provider => 'rpm',
     source => 'tmp/freetype-2.3.11-14.el6_3.1.i686.rpm ',
@@ -121,7 +121,7 @@ class graphite_packages {
     require  => File["/tmp/python-crypto-2.0.1-22.el6.x86_64.rpm"],
   }
 
-package { 'python-simplejson':
+  package { 'python-simplejson':
     ensure => installed,
     provider => 'rpm',
     source => 'tmp/python-simplejson-2.0.9-3.1.el6.x86_64.rpm',
@@ -209,7 +209,7 @@ package { 'python-simplejson':
   }
 
 
-package { 'SOAPpy':
+  package { 'SOAPpy':
     ensure => installed,
     provider => 'rpm',
     source => 'tmp/ SOAPpy-0.11.6-11.el6.noarch.rpm',
@@ -225,14 +225,14 @@ package { 'SOAPpy':
   }
 
 
-package { 'tkinter':
+  package { 'tkinter':
     ensure => installed,
     provider => 'rpm',
     source => 'tmp/tkinter-2.6.6-52.el6.x86_64.rpm',
     require  => File["/tmp/tkinter-2.6.6-52.el6.x86_64.rpm"],
   }
 
-package { 'xorg-x11-xbitmaps':
+  package { 'xorg-x11-xbitmaps':
     ensure => installed,
     provider => 'rpm',
     source => 'tmp/xorg-x11-xbitmaps-1.0.1-9.1.el6.x86_64.rpm',
