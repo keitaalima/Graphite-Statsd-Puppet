@@ -69,14 +69,14 @@ class graphite::carbon {
     ensure => present
     source => 'puppet:///modules/graphite/carbon-relay',
     mode => '0755',
-     notify => Service['carbon-relay']
+    notify => Service['carbon-relay']
    }
 
   file { '/etc/init.p/carbon-aggregator':
     ensure => present
     source => 'puppet:///modules/graphite/carbon-aggregator',
     mode => '0755',
-     notify => Service['carbon-aggregator']
+    notify => Service['carbon-aggregator']
    }
 
    file {'/etc/httpd/conf/extra/vhosts-enabled/graphite-vhosts.conf'
@@ -104,7 +104,7 @@ class graphite::carbon {
     mode => '0755' ,
    }
 
-   file {'/opt/graphite/storage-schemas.conf':
+  file {'/opt/graphite/storage-schemas.conf':
     ensure => present
     source => 'puppet:///modules/graphite/storage-schemas.conf',
     mode => '0755' ,
@@ -112,8 +112,8 @@ class graphite::carbon {
 }
 
 class graphite::whisper { 
-package {'whisper':
-    ensure => present;
+    package {'whisper':
+      ensure => present;
   }
 
 }
