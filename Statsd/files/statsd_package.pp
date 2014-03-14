@@ -2,17 +2,17 @@
 
 class statsd-package{
 
-	package {'node': ensure => present}
-	package {'npm': ensure => present}
+	package {'node': ensure => present},
+	package {'npm': ensure => present},
 
 	
 	exec {'install_node':
-		command => '/opt/ git clone https://github.com/joyent/node 
-		creates => '/opt/node'
+		command => '/opt/ git clone https://github.com/joyent/node,
+		creates => '/opt/node',
 	}
 
 	file {'/opt/node/':
-		ensure => directory	
+		ensure => directory,	
 	}
 
 	exec {'install_node':
@@ -21,13 +21,13 @@ class statsd-package{
 	}
 
 	file {'/usr/local/bin/node':
-		ensure => present
+		ensure => present,
 	}
 
 ## installing npm in the /tmp directory
 
 #	package {'install.sh':
-#		name = $install.sh
+#		name = $install.sh,
 #		ensure => latest,
 #		source => '/tmp/$install.sh'
 ##		provider => 'wget'
@@ -39,11 +39,12 @@ class statsd-package{
 #	}
 
 	file {'/usr/bin/npm':
-		ensure => present 
+		ensure => present, 
 	}
 
 	exec {'/usr/bin/npm install express':
-		require => Package ['npm']
+		require => Package ['npm'],
+		subscribe => File["/opt/statsd.js"]
 	}
 }
 

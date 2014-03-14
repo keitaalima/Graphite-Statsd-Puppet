@@ -7,7 +7,6 @@ class graphite {
 	
 }
 
-
 class graphite::web {
 
   package {
@@ -36,7 +35,6 @@ class graphite::web {
 
 }
 
-
 class graphite::carbon {
 
   package {'carbon':
@@ -60,21 +58,21 @@ class graphite::carbon {
 
   file { '/etc/init.p/carbon-cache':
    ensure => present
-   source => 'puppet:///modules/graphite/carbon-cache',
+   source => 'puppet:///modules/graphite/carbon-cache-init.sh',
    mode => '0755',
    notify => Service['carbon-cache']
    }
 
   file { '/etc/init.p/carbon-relay':
     ensure => present
-    source => 'puppet:///modules/graphite/carbon-relay',
+    source => 'puppet:///modules/graphite/carbon-relay-init.sh',
     mode => '0755',
     notify => Service['carbon-relay']
    }
 
   file { '/etc/init.p/carbon-aggregator':
     ensure => present
-    source => 'puppet:///modules/graphite/carbon-aggregator',
+    source => 'puppet:///modules/graphite/carbon-aggregator-init.sh',
     mode => '0755',
     notify => Service['carbon-aggregator']
    }
@@ -115,5 +113,4 @@ class graphite::whisper {
     package {'whisper':
       ensure => present;
   }
-
 }
