@@ -114,3 +114,5 @@ class graphite::whisper {
       ensure => present;
   }
 }
+
+je suis en train de faire un test
